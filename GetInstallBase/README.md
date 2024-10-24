@@ -1,36 +1,39 @@
-HOW TO RUN THE SCRIPT
+# INTRODUCTION
 
-=======================================================
-This script is based on Posh-SSH, the user must install the library if not already installed.
-To install Posh-SSH
+The script is used to collect the install base in customer environments.
+
+It accepts a list of Device IP addresses from a CSV file 'Switches.csv' saved in the same folder, script collects `show chassis hardware detail | display xml | no-more` and `show version | no-more` from each device. The output is then saved into two saperates files each for it's respective outputs inside c:\temp\JuniperNetworks folder. At the end of the script the folder is zipped to c:\temp\JuniperNetworks.zip.
+
+# PRE-REQ
+
+The script is based on a Posh-SSH PowerShell Lib, which can be installed by using the following command (if not installed).
+
+## INSTALL Posh-SSH
+
 open powershell in administrator mode and run the following command.
-=======================================================
+`Install-Module -Name Posh-SSH`
 
-Install-Module -Name Posh-SSH
+## SCRIPT PERMISSIONS
 
-=======================================================
-if script gives error user restricted error. please run the following command in powershell once 
+if script generates the following error 'user restricted error'. please run the following command in powershell once 
 before running the script. 
-=======================================================
 
-Set-ExecutionPolicy Unrestricted -Force -Scope CurrentUser
+`Set-ExecutionPolicy Unrestricted -Force -Scope CurrentUser` in powershell terminal.
 
-=======================================================
+## DEVICE IP ADDRESSES
+
 The script reads a CSV file provided in the same folder, 
-
-Add device IP in the same file with the following format.
+Add device IP in the same file in the following format which is 1 IP per line.
 1.1.1.1,
 2.2.2.2,
 
-How to run the script
+## RUNNING THE SCRIPT
 
-open powershell 
-cd into the directory where the script is saved.
+1. open powershell 
+2. cd into the directory where the script is saved.
+3. RUN THE FOLLOWING COMMAND
 
-Then execute the following command.
-=======================================================
-
-powershell.exe .\mainv3.ps1
+`powershell.exe .\mainv3.ps1`
 
 **THE SCRIPT SHOULD ASK FOR USERNAME/PASSWORD***
 **PLEASE DO NOT USE ROOT USER***
