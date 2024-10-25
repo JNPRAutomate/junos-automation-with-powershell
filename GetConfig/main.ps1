@@ -39,17 +39,17 @@ else
 }
 
 # get credentials
-#$Creds = Get-Credential
+$Creds = Get-Credential
 
 # set the username variable, the user name must not be root. it can be any user with rights to read configurations. 
 
-$user = "admin"
+# $user = "admin"
 
 # put the password here put password "" after -String.
 
-$pass = ConvertTo-SecureString -String "admin@123" -AsPlainText -Force
+# $pass = ConvertTo-SecureString -String "admin@123" -AsPlainText -Force
 
-$creds = new-object -typename System.Management.Automation.PSCredential -argumentlist $user,$pass
+# $creds = new-object -typename System.Management.Automation.PSCredential -argumentlist $user,$pass
 # loop through all the IPs
 
 foreach ($Switch in $CSV)
@@ -61,7 +61,7 @@ foreach ($Switch in $CSV)
   Get-SSHTrustedHost | Remove-SSHTrustedHost
 
   Write-Host -ForegroundColor Yellow "Connecting to $SwitchIP"
-  New-SSHSession -ComputerName $Switch.IP -Credential $creds -AcceptKey 
+  New-SSHSession -ComputerName $Switch.IP -Credential $Creds -AcceptKey 
 
   $sess = Get-SSHSession
   $parsed_output = ""
@@ -74,7 +74,7 @@ foreach ($Switch in $CSV)
     Start-Sleep -s 5
     Write-Host -ForegroundColor Yellow "Sending 'show configuration | display set | except encrypted-password | no-more'"
     $SSHStream.WriteLine("")
-    $SSHStream.WriteLine("show configuration | display set | except encrypted-password | no-more")
+    $SSHStream.WriteLine("show configuration | display set | no-more")
     Start-Sleep -s 15
     $cmd_output = $SSHStream.read()
     #Write-Host -ForegroundColor Yellow $cmd_output
