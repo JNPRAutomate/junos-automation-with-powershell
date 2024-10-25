@@ -43,11 +43,11 @@ else
 
 # set the username variable, the user name must not be root. it can be any user with rights to read configurations. 
 
-$user = "stadmin"
+$user = "admin"
 
 # put the password here put password "" after -String.
 
-$pass = ConvertTo-SecureString -String "pppict@123" -AsPlainText -Force
+$pass = ConvertTo-SecureString -String "admin@123" -AsPlainText -Force
 
 $creds = new-object -typename System.Management.Automation.PSCredential -argumentlist $user,$pass
 # loop through all the IPs
