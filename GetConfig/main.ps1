@@ -72,7 +72,7 @@ foreach ($Switch in $CSV)
     Write-Host -ForegroundColor Yellow "Connected to $SwitchIP"
     $SSHStream = New-SSHShellStream -Index 0 -Columns 200
     Start-Sleep -s 5
-    Write-Host -ForegroundColor Yellow "Sending 'show configuration | display set | except encrypted-password | no-more'"
+    Write-Host -ForegroundColor Yellow "Sending 'show configuration | display set | no-more'"
     $SSHStream.WriteLine("")
     $SSHStream.WriteLine("show configuration | display set | no-more")
     Start-Sleep -s 15
