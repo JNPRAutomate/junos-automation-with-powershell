@@ -2,7 +2,7 @@
 
 The script is used to backup configurations from devices.
 
-It accepts a list of Device IP addresses from a CSV file 'Switches.csv' saved in the same folder, script collects `show configuration | display set | no-more` from each device. The configs are saved to individual files with host-name of the device as filename. The script creates a folder in the same folder as of script with a prefix 'ConfigBackup_' and script date as postfix, example 'ConfigBackup_25_10_2024'.
+It accepts a list of Device IP addresses from a CSV file 'Switches.csv' saved in the same folder, script collects `show configuration | display set | no-more` from each device and saves it to individual files with host-name of the device as filename. The script creates a folder in the same folder as of script with a prefix 'ConfigBackup_' and script date as postfix, example 'ConfigBackup_25_10_2024'.
 
 Script prompts for credintitials at the script's execution.
 
