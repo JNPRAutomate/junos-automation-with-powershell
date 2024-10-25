@@ -1,8 +1,12 @@
 # INTRODUCTION
 
-The script is used to collect the install base in customer environments.
+The script is used to backup configurations from devices.
 
-It accepts a list of Device IP addresses from a CSV file 'Switches.csv' saved in the same folder, script collects `show chassis hardware detail | display xml | no-more` and `show version | no-more` from each device. The output is then saved into two saperates files each for it's respective outputs inside c:\temp\JuniperNetworks folder. At the end of the script the folder is zipped to c:\temp\JuniperNetworks.zip.
+It accepts a list of Device IP addresses from a CSV file 'Switches.csv' saved in the same folder, script collects `show configuration | display set | no-more` from each device. The configs are saved to individual files with host-name of the device as filename. The script creates a folder in the same folder as of script with a prefix 'ConfigBackup_' and script date as postfix, example 'ConfigBackup_25_10_2024'.
+
+Script prompts for credintitials at the script's execution.
+
+The output folder is zipped at the end of the execution.
 
 # PRE-REQ
 
@@ -33,12 +37,8 @@ Add device IP in the same file in the following format which is 1 IP per line.
 2. cd into the directory where the script is saved.
 3. RUN THE FOLLOWING COMMAND
 
-`powershell.exe .\mainv3.ps1`
+`powershell.exe .\main.ps1`
 
 **THE SCRIPT SHOULD ASK FOR USERNAME/PASSWORD***
 **PLEASE DO NOT USE ROOT USER***
-
-The script creates a zip file in C:\temp\ named JuniperNetworks.zip
-The zip contains 2 files, show_chassis_hardware.txt and show_version.txt.
-Customer has to share the same file with Juniper Networks.
 
