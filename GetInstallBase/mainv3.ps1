@@ -1,3 +1,7 @@
+# dev: Shabbir
+# email: shahmed@juniper.net, shabbir.ahmed@yahoo.com
+# version: 3
+
 Set-ExecutionPolicy Unrestricted -Force -Scope Process
 
 Import-Module Posh-SSH
@@ -8,6 +12,7 @@ Import-Module Posh-SSH
 # following format.
 # 1.1.1.1,
 # 2.2.2.2,
+
 $CSV = Import-Csv Switches.csv
 
 # Create a new directory with today's date and time.
