@@ -1,6 +1,6 @@
 # INTRODUCTION
 
-The script is used to collect the install base in customer environments.
+This script can be used to automate varlog and rsi collection from a juniper environement.
 
 It accepts a list of Device IP addresses from a CSV file 'Switches.csv' saved in the same folder, script collects `request support information` and `file archive compress source /var/log/* destination /var/tmp/` from each device. The output is then saved into two saperates files each for it's respective outputs inside c:\temp\JuniperNetworks folder. At the end of the script the folder is zipped to c:\temp\JuniperNetworks.zip.
 
