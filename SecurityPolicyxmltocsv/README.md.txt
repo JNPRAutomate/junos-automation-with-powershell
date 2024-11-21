@@ -1,4 +1,4 @@
-# intro
+# INTRODUCTION
 
 This PowerShell script which takes ‘show configuration | display xml’ output and generates CSV or excel sheet , this helps in reviewing policies and|or to view and audit.
 
